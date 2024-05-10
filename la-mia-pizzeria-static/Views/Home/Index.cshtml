@@ -21,7 +21,7 @@
                 <tr>
                     <td>@pizza.Name</td>
                     <td>@pizza.Description</td>
-                    <td><img src="@pizza.ImageUrl" alt="Foto Pizza" style="max-width: 100px;"></td>
+                    <td><img src="@Url.Content(@pizza.ImagePath)" alt="Foto Pizza" style="max-width: 100px;"></td>
                     <td>@pizza.Price €</td>
                 </tr>
             }
