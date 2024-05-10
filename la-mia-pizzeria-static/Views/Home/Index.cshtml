@@ -2,29 +2,46 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .card {
+        height: 600px;
+        cursor:pointer;
+        transition: box-shadow 0.3s, background-color 0.3s;
+    }
+        .card:hover {
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); 
+            background-color: #f8f9fa; 
+        }
+
+    .card-img-top {
+        height: 400px; 
+        object-fit: cover; 
+    }
+
+    .card-footer {
+        padding: 1.5rem;
+        background-color: rgba(0,0,0,.0);
+        border-top: none;
+    }
+</style>
 
 <div class="container">
-    <h1 class="text-center mb-5">Benvenuti alla Mia Pizzeria!</h1>
-    <h2>Le nostre Pizze:</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Descrizione</th>
-                <th>Foto</th>
-                <th>Prezzo</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var pizza in Model)
-            {
-                <tr>
-                    <td>@pizza.Name</td>
-                    <td>@pizza.Description</td>
-                    <td><img src="@Url.Content(@pizza.ImagePath)" alt="Foto Pizza" style="max-width: 100px;"></td>
-                    <td>@pizza.Price €</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <h1 class="text-center mb-5">Lista Pizze:</h1>
+    <div class="row">
+        @foreach (var pizza in Model)
+        {
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="@Url.Content(pizza.ImagePath)" class="card-img-top" alt="Foto Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>@pizza.Name</strong></h5>
+                        <p class="card-text">@pizza.Description</p>
+                    </div>
+                    <div class="card-footer">
+                        <h5 class="card-text text-end">Prezzo: <strong>@pizza.Price €</strong></h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
