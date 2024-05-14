@@ -16,3 +16,27 @@ html {
 body {
   margin-bottom: 60px;
 }
+.card {
+    height: 500px;
+    cursor: pointer;
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s, background-color 0.3s, border 0.3s;
+    border-radius: 10px;
+}
+
+    .card:hover {
+        border: 3px solid rgb(0, 216, 230);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        background-color: #f8f9fa;
+    }
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-footer {
+    padding: 1.5rem;
+    background-color: rgba(0,0,0,.0);
+    border-top: none;
+}
